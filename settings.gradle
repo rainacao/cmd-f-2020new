@@ -1,2 +1,3 @@
 rootProject.name='CmdF2020New'
 include ':app'
+include ':test'
