@@ -8,7 +8,6 @@ public class Plant extends PlantLevel {
     final static String SECOND_STATE="2";
     final static String THIRD_STATE="3";
 
-    private PlantLevel plantLevel;
     private boolean dead;
     private String currentEvolutionState;
 
@@ -22,7 +21,17 @@ public class Plant extends PlantLevel {
         dead = true;
     }
 
-    public void upgradePlant() throws NoMoreEvolutionException {
+    public boolean checkEvolution() throws NoMoreEvolutionException {
+        int level = getCurrentLevel();
+        if (level == 2 || level == 4 || level == 6) {
+            evolvePlant();
+            return true;
+        }
+        return false;
+    }
+
+
+    public void evolvePlant() throws NoMoreEvolutionException {
         switch(currentEvolutionState){
             case BASE_STATE:
                 currentEvolutionState = FIRST_STATE;
@@ -38,5 +47,14 @@ public class Plant extends PlantLevel {
 
         }
     }
+
+    public boolean checkUpdate() {
+        if (getXp() > 5) {
+            updateLevel();
+            return true;
+        }
+        return false;
+    }
+
 
 }
