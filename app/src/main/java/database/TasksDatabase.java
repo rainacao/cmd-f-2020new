@@ -3,6 +3,7 @@ package database;
 import android.app.Application;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -64,6 +65,43 @@ public class TasksDatabase extends SQLiteOpenHelper {
             return true;
 
     }
+
+    public Cursor getAllData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor result = db.rawQuery("select * from " + TABLE_NAME, null);
+        return result;
+    }
+
+    public boolean updateData(String id, String name, String description, String endTime, boolean status) {
+        SQLiteDatabase db = this.getWritableDatabase(); // instance of the SQLite database
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_1, id);
+        contentValues.put(COL_2, name);
+        contentValues.put(COL_3, description);
+        contentValues.put(COL_4, endTime);
+        if (status) contentValues.put(COL_5, 1);
+        else contentValues.put(COL_5, 0);
+
+
+        db.update(TABLE_NAME, contentValues, "ID = ?", new String[]{id});
+        // first param is table name, second is the contentValues which we have set up and
+        // will go into the correct spot when we find the slot where ID is = the id
+        // provided.  The third param is telling the update method what to look for.
+        // In this case we are checking to see if the ID is equal to the value that is
+        // passed in the String array which is the fourth argument
+
+        return true;
+    }
+
+    public Integer deleteData(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME, "ID = ?", new String[] {id});
+        // first param is table name, second is telling the delete method what to look for.
+        // In this case we are checking to see if the ID is equal to the value that is
+        // passed in the String array which is the third argument
+        // delete method returns the number of rows that are affected
+    }
+
 
 
 }
