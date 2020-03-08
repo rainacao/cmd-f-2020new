@@ -162,7 +162,7 @@ public class TasksActivity extends AppCompatActivity {
     }
 
     // reset xp gathered from this round of finished tasks
-    private void resetEXP() {
+    public static void resetEXP() {
         exp = 0;
     }
 

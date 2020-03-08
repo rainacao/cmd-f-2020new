@@ -58,5 +58,6 @@ public class PlantActivity extends AppCompatActivity {
         } else {
             image.setImageResource(R.drawable.plant_img3);
         }
+        TasksActivity.resetEXP();
     }
 }
