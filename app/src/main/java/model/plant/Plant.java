@@ -58,7 +58,7 @@ public class Plant extends PlantLevel{
     }
 
     public boolean checkUpdate() {
-        if (getXp() > 5) {
+        if (getXp() >= 5) {
             updateLevel();
             return true;
         }

@@ -22,6 +22,7 @@ public class PlantLevel {
 
     public void updateLevel() {
         currentLevel++;
+        xp = 0;
     }
 
 
