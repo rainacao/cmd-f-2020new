@@ -42,7 +42,7 @@
         app:layout_constraintVertical_bias="0.996"
         app:srcCompat="@drawable/gear_img" />
 
-    <Button
+<!--    <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
         app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.595" />
+        app:layout_constraintVertical_bias="0.595" />-->
 
     <Button
         android:layout_width="wrap_content"
