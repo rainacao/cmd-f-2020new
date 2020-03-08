@@ -11,7 +11,9 @@ import model.plant.Plant;
 
 public class PlantActivity extends AppCompatActivity {
 
-    Plant testPlant = new Plant();
+    Plant testPlant1 = new Plant(2, 1);
+    Plant testPlant2 = new Plant(4, 1);
+    Plant testPlant3 = new Plant(6, 1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +40,16 @@ public class PlantActivity extends AppCompatActivity {
 
     public void changePlantImg(Plant p){
         int level = p.getCurrentLevel();
-        if (level == 2){
+        if (level < 2){
+            imageView.setImageResource(R.drawable.plant_img0);
+        }
+        else if (level < 4){
             imageView.setImageResource(R.drawable.plant_img1);
         }
-        else if (level == 4){
+        else if (level < 6){
             imageView.setImageResource(R.drawable.plant_img2);
         }
-        else if (level == 6){
+        else{
             imageView.setImageResource(R.drawable.plant_img3);
         }
     }
