@@ -75,4 +75,3 @@ public class PlantActivity extends AppCompatActivity {
     }
 }
 
-}
