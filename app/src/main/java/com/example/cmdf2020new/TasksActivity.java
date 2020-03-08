@@ -7,11 +7,16 @@ import android.os.Bundle;
 import database.TasksDatabase;
 
 public class TasksActivity extends AppCompatActivity {
-    TasksDatabase myDB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasks);
-        myDB = new TasksDatabase(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //save temp data into perm
     }
 }

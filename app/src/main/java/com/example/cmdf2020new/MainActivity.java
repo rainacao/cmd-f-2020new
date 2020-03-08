@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import model.plant.Plant;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -17,10 +15,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onButtonClicked(View v) {
-        Intent intent = new Intent(this, PlantActivity.class);
-        intent.putExtra("name", "Raina");
+        Intent intent = new Intent(this, AddEditTaskActivity.class);
         startActivity(intent);
+    }
 
+    public void goToCalendar(View v){
+        Intent intent = new Intent (this, TaskCalendarActivity.class);
+        startActivity(intent);
     }
 
 }
