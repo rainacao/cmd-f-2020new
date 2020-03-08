@@ -32,5 +32,9 @@
     <string name="mark_as_complete">mark as complete</string>
     <string name="add_task">add task</string>
     <string name="view_today_s_tasks">View Today\'s Tasks</string>
+    <string name="shop">shop</string>
+    <string name="back">back</string>
+    <string name="_5_coin">5 coin</string>
+    <string name="_1_coin">1 coin</string>
 
 </resources>

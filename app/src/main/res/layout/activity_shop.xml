@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.056" />
 
     <ImageView
         android:id="@+id/plantImg"
@@ -75,7 +75,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:onClick="goBuyFlower"
-        android:text="1 coin"
+        android:text="@string/_1_coin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.16"
@@ -88,7 +88,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:onClick="goBuyFlower"
-        android:text="5 coin"
+        android:text="@string/_5_coin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.836"
@@ -101,7 +101,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:onClick="goBuyFlower"
-        android:text="5 coin"
+        android:text="@string/_5_coin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.836"
@@ -114,7 +114,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:onClick="goBuyFlower"
-        android:text="5 coin"
+        android:text="@string/_5_coin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.16"
@@ -127,12 +127,12 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:onClick="goToPlant"
-        android:text="back"
+        android:text="@string/back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.948" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,17 +11,18 @@ public class ShopActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_shop);
 
+    }
+
+    public void goBuyFlower(View v) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     public void goToPlant(View v) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-    }
-
-    public void goBuyFlower(View v) {
-        //stub
     }
 
 }
