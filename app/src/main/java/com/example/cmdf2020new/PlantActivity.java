@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import database.SystemDatabase;
 import model.plant.Plant;
 
 public class PlantActivity extends AppCompatActivity {
@@ -17,12 +18,13 @@ public class PlantActivity extends AppCompatActivity {
     Plant testPlant1 = new Plant(2, 1);
     Plant testPlant2 = new Plant(5, 4);
     Plant testPlant3 = new Plant(6, 1);
-
+    Plant plant;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant);
-        updatePlantImage(testPlant2);
+        plant = SystemDatabase.myDB.getPlant();
+        updatePlantImage(plant);
     }
 
     public void goMakeTask(View v) {
