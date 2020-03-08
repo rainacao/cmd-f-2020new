@@ -1,9 +1,7 @@
-package model.time;
+package model.task;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import model.task.Task;
 
 public class Timetable {
     private HashMap<Integer, Task> timetable;
