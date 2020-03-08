@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     //updates the plant's image if needed
     public void updatePlantImage(Plant p) {
         image = findViewById(R.id.plantImg);
-        p.addEXP(TasksActivity.exp);
+        p.updatePlantWithEXP(TasksActivity.exp);
         int level = p.getLevel();
         if (level < 2) {
             image.setImageResource(R.drawable.plant_img0);
