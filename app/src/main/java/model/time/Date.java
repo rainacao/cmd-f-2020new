@@ -2,6 +2,7 @@ package model.time;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class Date {
     private static final DateFormat YEAR_FORMAT = new SimpleDateFormat("yyyy");
@@ -9,7 +10,7 @@ public class Date {
     private static final DateFormat DAY_FORMAT = new SimpleDateFormat("dd");
     private static final DateFormat NAME_OF_DAY_FORMAT = new SimpleDateFormat("EEEE");
 
-    private static final java.util.Date CURRENT_DATE = new java.util.Date();
+    private Calendar calendar = Calendar.getInstance();
 
     private String year;
     private String month;
@@ -17,10 +18,25 @@ public class Date {
     private String day;
 
     public Date() {
-        year = YEAR_FORMAT.format(CURRENT_DATE);
-        month = MONTH_FORMAT.format(CURRENT_DATE);
-        dayOfTheWeek = NAME_OF_DAY_FORMAT.format(CURRENT_DATE);
-        day = DAY_FORMAT.format(CURRENT_DATE);
+        year = YEAR_FORMAT.format(calendar);
+        month = MONTH_FORMAT.format(calendar);
+        dayOfTheWeek = NAME_OF_DAY_FORMAT.format(calendar);
+        day = DAY_FORMAT.format(calendar);
+    }
+
+    public Date(Calendar calendar) {
+        year = YEAR_FORMAT.format(calendar);
+        month = MONTH_FORMAT.format(calendar);
+        dayOfTheWeek = NAME_OF_DAY_FORMAT.format(calendar);
+        day = DAY_FORMAT.format(calendar);
+    }
+
+    public void toTomorrow() {
+        calendar.add(Calendar.DATE, 1);
+    }
+
+    public void toYesterday() {
+        calendar.add(Calendar.DATE, -1);
     }
 
     public void setYear(String year) {
