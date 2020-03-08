@@ -2,7 +2,8 @@ package model.plant;
 
 import model.exceptions.NoMoreEvolutionException;
 
-public class Plant extends PlantLevel {
+public class Plant extends PlantLevel{
+
     final String BASE_STATE="0";
     final static String FIRST_STATE="1";
     final static String SECOND_STATE="2";
@@ -13,6 +14,12 @@ public class Plant extends PlantLevel {
 
     public Plant() {
         super(0, 0);
+        dead = false;
+        currentEvolutionState = BASE_STATE;
+    }
+
+    public Plant(int lvl, int exp){
+        super(lvl, exp);
         dead = false;
         currentEvolutionState = BASE_STATE;
     }
@@ -30,7 +37,6 @@ public class Plant extends PlantLevel {
         return false;
     }
 
-
     public void evolvePlant() throws NoMoreEvolutionException {
         switch(currentEvolutionState){
             case BASE_STATE:
@@ -43,13 +49,14 @@ public class Plant extends PlantLevel {
                 currentEvolutionState = THIRD_STATE;
                 break;
             case THIRD_STATE:
-            default: throw new NoMoreEvolutionException();
+            default:
+                throw new NoMoreEvolutionException();
 
         }
     }
 
     public boolean checkUpdate() {
-        if (getXp() > 5) {
+        if (getEXP() >= 5) {
             updateLevel();
             return true;
         }

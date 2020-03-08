@@ -18,7 +18,7 @@ public class Task extends TimerTask {
     private boolean status;
     private Time time;
 
-    public Task(String name, boolean status, String description, Time time) {
+    public Task(String name, boolean status, String description, Time time)  {
         this.name=name;
         this.status=status;
         this.description=description;

@@ -27,6 +27,8 @@ public class Time extends Date{
         this.timeConvention = timeConvention;
     }
 
+    // returns 24-hour value of time as first 2 digits, and minutes as last 2 digits
+    // eg. 8:00AM would be 800, 1:45PM would be 1345
     public int getTimeValue() {
         int hourIn24Format = 0;
         if (this.timeConvention.equals("PM")) {
