@@ -1,7 +1,9 @@
 package com.example.cmdf2020new;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -13,19 +15,28 @@ import android.widget.ListView;
 import com.example.cmdf2020new.tasksActivityHelpers.*;
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import database.TasksDatabase;
 import model.task.Task;
+import model.time.Time;
 
 /*
 source: Jerry Zhao
 from: dev2qa.com
  */
 public class TasksActivity extends AppCompatActivity {
+
+    //parallel arrays
+    List<Task> taskList = new ArrayList<>();
+    List<String> idList = new ArrayList<>();
+
+    TasksDatabase myDB = TasksDatabase.myBD;
 /*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,20 +94,23 @@ public class TasksActivity extends AppCompatActivity {
                     itemDto.setChecked(true);
                 }
 
-                //Toast.makeText(getApplicationContext(), "select item text : " + itemDto.getItemText(), Toast.LENGTH_SHORT).show();
-                // Click this button to disselect all listview items with checkbox unchecked.
-                Button selectNoneButton = (Button)findViewById(R.id.add);
-                selectNoneButton.setOnClickListener(new View.OnClickListener() {
+                Button done = (Button)findViewById(R.id.done);
+                done.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         int size = initItemList.size();
                         for(int i=0;i<size;i++)
                         {
                             ListViewItemDTO dto = initItemList.get(i);
-                            dto.setChecked(false);
+                            if (dto.isChecked()) {
+                                Task t= taskList.get(i);
+                                myDB.updateData(idList.get(i), t.getName(), t.getDescription(), "", true);
+                                //!!!!!! end time not set for testing purpose
+                            }
                         }
-
                         listViewDataAdapter.notifyDataSetChanged();
+                        finish();
+                        startActivity(getIntent());
                     }
                 });
 
@@ -106,24 +120,21 @@ public class TasksActivity extends AppCompatActivity {
 
     // Return an initialize list of ListViewItemDTO.
     private List<ListViewItemDTO> getInitViewItemDtoList() {
-        TasksDatabase myDB = TasksDatabase.myBD;
-        Cursor result = myDB.getWritableDatabase().rawQuery("SELECT * FROM " + TasksDatabase.TABLE_NAME + " WHERE " + TasksDatabase.COL_5 + "= ?", new String[]{"0"});
-        String[] itemTextArr = new String[result.getCount()];
+        Cursor result = myDB.getAllData();
 
-        for(int i= 0; i < itemTextArr.length; i++) {    // while there is more data to read
-            StringBuffer buffer = new StringBuffer();
-            buffer.append("time: " + result.getString(3) + "\n");
-            buffer.append("name: " + result.getString(1));
-            itemTextArr[i] = buffer.toString();
+        while (result.moveToNext()) {
+            if (result.getString(4).equals("0")) {
+                taskList.add(new Task(result.getString(1), false, result.getString(2), null));
+                idList.add(result.getString(0));
+            }
         }
 
         List<ListViewItemDTO> ret = new ArrayList<ListViewItemDTO>();
 
-        int length = itemTextArr.length;
 
-        for(int i=0;i<length;i++)
+        for(Task t: taskList)
         {
-            String itemText = itemTextArr[i];
+            String itemText = "\t" + t.getName();
 
             ListViewItemDTO dto = new ListViewItemDTO();
             dto.setChecked(false);
@@ -132,6 +143,19 @@ public class TasksActivity extends AppCompatActivity {
             ret.add(dto);
         }
         return ret;
+    }
+
+    public void showMessage(String title, String message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.show();
+    }
+
+    public void onAddClicked(View v) {
+        Intent intent = new Intent(this, AddEditTaskActivity.class);
+        startActivity(intent);
     }
 
 
