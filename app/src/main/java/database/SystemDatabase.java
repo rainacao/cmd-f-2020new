@@ -8,9 +8,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.cmdf2020new.MyApp;
+
 import model.plant.Plant;
 
 public class SystemDatabase extends SQLiteOpenHelper {
+    public static SystemDatabase myDB = new SystemDatabase(MyApp.getContext());
+
     public static final String DATABASE_NAME = "System.db";
     public static final String TREE_TABLE = "tree_table";
     //LV | XP
@@ -25,7 +29,7 @@ public class SystemDatabase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + TREE_TABLE + " (LV INTEGER, XP INTEGER)");
-        db.execSQL("create table " + SETTINGS_TABLE + " (MUSIC INTEGER, SFX INTEGER, LANGUAGE TEXT)");
+        db.execSQL("create table " + SETTINGS_TABLE + " (MUSIC INTEGER, SFX INTEGER, LANGUAGE INTEGER)");
     }
 
     @Override
@@ -54,10 +58,16 @@ public class SystemDatabase extends SQLiteOpenHelper {
     public Plant getPlant() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor result = db.rawQuery("select * from " + TREE_TABLE, null);
+        if (result.getCount() == 0) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("LV", 0);
+            contentValues.put("XP", 0);
+            db.insert(TREE_TABLE, null, contentValues);
+        }
         return new Plant(Integer.parseInt(result.getString(0)), Integer.parseInt(result.getString(1)));
     }
 
-    public boolean updateSettingsData(int music, int sfx, String language) {
+    public boolean updateSettingsData(int music, int sfx, int language) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("MUSIC", music);
         contentValues.put("SFX", sfx);
@@ -77,6 +87,13 @@ public class SystemDatabase extends SQLiteOpenHelper {
     public Cursor getSettings() {
         SQLiteDatabase db = this.getWritableDatabase(); // instance of the SQLite database
         Cursor result = db.rawQuery("select * from " + SETTINGS_TABLE, null);
+        if (result.getCount() == 0) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("MUSIC", 0);
+            contentValues.put("SFX", 0);
+            contentValues.put("LANGUAGE", 0);
+            db.insert(SETTINGS_TABLE, null, contentValues);
+        }
         return result;
     }
 }

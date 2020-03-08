@@ -7,22 +7,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import database.SystemDatabase;
 import model.plant.Plant;
 
 public class PlantActivity extends AppCompatActivity {
 
     private ImageView image;   // the plant and its evolution
 
-    Plant testPlant0 = new Plant(0, 1);
-    Plant testPlant1 = new Plant(2, 1);
-    Plant testPlant2 = new Plant(4, 1);
-    Plant testPlant3 = new Plant(6, 1);
+    Plant plant;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant);
-        updatePlantImage(testPlant3);
+        plant = SystemDatabase.myDB.getPlant();
+        updatePlantImage(plant);
     }
 
     public void goMakeTask(View v) {
