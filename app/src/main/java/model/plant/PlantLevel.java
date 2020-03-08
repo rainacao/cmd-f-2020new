@@ -1,8 +1,12 @@
 package model.plant;
 
 public class PlantLevel {
+    // xp represents number of completed tasks
+    // level up every 5 xp
+    // evolve every 2 levels
     private int currentLevel;
     private int xp;
+
 
     public PlantLevel(int currentLevel, int xp) {
         this.currentLevel = currentLevel;
@@ -15,6 +19,10 @@ public class PlantLevel {
 
     public int getXp() {
         return xp;
+    }
+
+    public void updateLevel() {
+        currentLevel++;
     }
 
 
