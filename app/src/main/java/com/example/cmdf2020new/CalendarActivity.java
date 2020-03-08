@@ -9,16 +9,15 @@ import android.widget.Button;
 import android.widget.CalendarView;
 
 import android.graphics.Color;
-import android.widget.Toast;
 
-public class TaskCalendarActivity extends AppCompatActivity {
+public class CalendarActivity extends AppCompatActivity {
 
     CalendarView simpleCalendarView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_taskcalendar);
+        setContentView(R.layout.activity_calendar);
         simpleCalendarView = findViewById(R.id.CalendarViewer);
         simpleCalendarView.setFocusedMonthDateColor(Color.RED);
         simpleCalendarView.setUnfocusedMonthDateColor(Color.BLUE);

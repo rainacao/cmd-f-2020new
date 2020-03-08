@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     public void updatePlantImage(Plant p) {
         image = findViewById(R.id.plantImg);
         p.addEXP(TasksActivity.exp);
-        int level = p.getCurrentLevel();
+        int level = p.getLevel();
         if (level < 2) {
             image.setImageResource(R.drawable.plant_img0);
         } else if (level < 4) {
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToCalendar(View v){
-        Intent intent = new Intent (this, TaskCalendarActivity.class);
+        Intent intent = new Intent (this, CalendarActivity.class);
         startActivity(intent);
     }
 
@@ -76,13 +76,13 @@ public class MainActivity extends AppCompatActivity {
     //displaying the current and next levels
     public TextView getLvlNow(Plant p) {
         lvlNow = (TextView) findViewById(R.id.initLevelText);
-        lvlNow.setText(Integer.toString(p.getCurrentLevel()));
+        lvlNow.setText(Integer.toString(p.getLevel()));
         return lvlNow;
     }
 
     public TextView getLvlNext(Plant p) {
         lvlNext = (TextView) findViewById(R.id.nextLevelText);
-        lvlNext.setText(Integer.toString(p.getCurrentLevel() + 1));
+        lvlNext.setText(Integer.toString(p.getLevel() + 1));
         return lvlNext;
     }
 

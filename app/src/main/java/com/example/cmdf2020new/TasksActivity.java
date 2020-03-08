@@ -15,16 +15,11 @@ import android.widget.ListView;
 import com.example.cmdf2020new.tasksActivityHelpers.*;
 
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import database.TasksDatabase;
 import model.task.Task;
-import model.time.Time;
 
 /*
 source: Jerry Zhao
@@ -162,7 +157,7 @@ public class TasksActivity extends AppCompatActivity {
     }
 
     public void goToCalendar(View v) {
-        Intent intent = new Intent(this, TaskCalendarActivity.class);
+        Intent intent = new Intent(this, CalendarActivity.class);
         startActivity(intent);
     }
 

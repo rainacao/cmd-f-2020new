@@ -7,14 +7,12 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import database.TasksDatabase;
-import model.task.Task;
 
 public class AddEditTaskActivity extends AppCompatActivity {
     EditText name;
@@ -98,7 +96,7 @@ public class AddEditTaskActivity extends AppCompatActivity {
     }
 
     public void goToCalendar(View v) {
-        Intent intent = new Intent(this, TaskCalendarActivity.class);
+        Intent intent = new Intent(this, CalendarActivity.class);
         startActivity(intent);
     }
 
