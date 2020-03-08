@@ -14,6 +14,7 @@ public class PlantActivity extends AppCompatActivity {
 
     private ImageView image;   // the plant and its evolution
 
+
     Plant plant;
 
     @Override
@@ -22,6 +23,7 @@ public class PlantActivity extends AppCompatActivity {
         setContentView(R.layout.activity_plant);
         plant = SystemDatabase.myDB.getPlant();
         updatePlantImage(plant);
+
     }
 
     public void goMakeTask(View v) {
@@ -46,7 +48,7 @@ public class PlantActivity extends AppCompatActivity {
 
     public void updatePlantImage(Plant p) {
         image = findViewById(R.id.plantImg);
-        System.out.println(image);
+        p.addEXP(TasksActivity.exp);
         int level = p.getCurrentLevel();
         if (level < 2) {
             image.setImageResource(R.drawable.plant_img0);

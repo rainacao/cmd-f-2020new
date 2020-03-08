@@ -1,9 +1,6 @@
 package model.plant;
 
 import model.exceptions.NoMoreEvolutionException;
-import android.widget.ImageView;
-
-import com.example.cmdf2020new.R;
 
 public class Plant extends PlantLevel{
 
@@ -59,7 +56,7 @@ public class Plant extends PlantLevel{
     }
 
     public boolean checkUpdate() {
-        if (getXp() >= 5) {
+        if (getEXP() >= 5) {
             updateLevel();
             return true;
         }
