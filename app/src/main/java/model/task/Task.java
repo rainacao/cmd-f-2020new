@@ -1,9 +1,13 @@
 package model.task;
 
+import model.time.Time;
+
 public class  Task {
+
     private String name;
     private String description;
     private boolean status;
+    private Time endTime;
 
     public Task(String name, boolean status, String description) {
         this.name=name;
