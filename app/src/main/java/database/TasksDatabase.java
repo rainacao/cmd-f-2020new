@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.cmdf2020new.MyApp;
 
 public class TasksDatabase extends SQLiteOpenHelper {
-    public static TasksDatabase myDB  = new TasksDatabase(MyApp.getContext());
+   // public static TasksDatabase myDB  = new TasksDatabase(MyApp.getContext());
 
     //finalized, completed tasks
     public static final String DATABASE_NAME = "TASKS.db";
@@ -35,8 +35,8 @@ public class TasksDatabase extends SQLiteOpenHelper {
         // this method executes SQL queries on the database
         // here we are creating our table we have to give the table name, and then specify the name for each column
         // as well as its data type.  You can use the constant names as well here.
-        db.execSQL("create table " + TABLE_NAME + " (COL_1 INTEGER PRIMARY KEY AUTOINCREMENT, COL_2 TEXT, COL_3 TEXT, COL_4 STRING)");
-        db.execSQL("create table " + TEMP_TABLE_NAME + " (COL_1 INTEGER PRIMARY KEY AUTOINCREMENT, COL_2 TEXT, COL_3 TEXT, COL_4 STRING)");
+        db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, DESCRIPTION TEXT, END_TIME STRING)");
+        db.execSQL("create table " + TEMP_TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, DESCRIPTION TEXT, END_TINE STRING)");
 
     }
 
@@ -159,4 +159,3 @@ public class TasksDatabase extends SQLiteOpenHelper {
     }
 
 }
-

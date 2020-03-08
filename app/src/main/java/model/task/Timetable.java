@@ -11,13 +11,13 @@ public class Timetable {
     }
 
     public void addTask(Task task) {
-        int taskValue = (task.getTime()).getTimeValue();
-        timetable.put(taskValue, task);
+        //int taskValue = (task.getTime()).getTimeValue();
+        //timetable.put(taskValue, task);
     }
 
     public void deleteTask(Task task) {
-        int taskValue = (task.getTime()).getTimeValue();
-        timetable.remove(taskValue);
+        //int taskValue = (task.getTime()).getTimeValue();
+        //timetable.remove(taskValue);
     }
 
     public ArrayList<String> blankTimetable() {

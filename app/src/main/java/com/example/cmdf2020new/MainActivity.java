@@ -17,8 +17,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onButtonClicked(View v) {
-        Intent intent = new Intent(this, PlantActivity.class);
-        intent.putExtra("name", "Raina");
+        Intent intent = new Intent(this, AddEditTaskActivity.class);
         startActivity(intent);
 
     }
