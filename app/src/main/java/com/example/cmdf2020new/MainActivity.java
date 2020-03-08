@@ -50,5 +50,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goToPlantTest(View v){
+        Intent intent = new Intent (this, PlantActivity.class);
+        startActivity(intent);
+    }
+
 
 }

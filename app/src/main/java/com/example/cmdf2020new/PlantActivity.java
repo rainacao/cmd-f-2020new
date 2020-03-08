@@ -6,23 +6,28 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
+import database.SystemDatabase;
 import model.plant.Plant;
 
 public class PlantActivity extends AppCompatActivity {
 
     private ImageView image;   // the plant and its evolution
-
-    Plant testPlant0 = new Plant(0, 1);
-    Plant testPlant1 = new Plant(2, 1);
-    Plant testPlant2 = new Plant(5, 4);
-    Plant testPlant3 = new Plant(6, 1);
+    Plant plant;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant);
-        updatePlantImage(testPlant2);
+/*
+        Plant plant = new Plant();
+        Plant testPlant1 = new Plant(2, 1);
+        changePlantImg(testPlant1);
+*/
+        plant = SystemDatabase.myDB.getPlant();
+        updatePlantImage(plant);
+
     }
 
     public void goMakeTask(View v) {
@@ -45,6 +50,15 @@ public class PlantActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    final ProgressBar progressBar = (ProgressBar) findViewById(R.id.expBar);
+    public void showProgress(Plant p){
+        progressBar.setProgress(p.getEXP());
+    }
+
+    final ImageView imageView = (ImageView) findViewById(R.id.plantImg);
+
+    //public void changePlantImg(Plant p){
+
     public void updatePlantImage(Plant p) {
         image = findViewById(R.id.plantImg);
         p.addEXP(TasksActivity.exp);
@@ -61,3 +75,4 @@ public class PlantActivity extends AppCompatActivity {
         TasksActivity.resetEXP();
     }
 }
+
