@@ -7,7 +7,7 @@
     tools:context=".TaskCalendarActivity">
 
     <CalendarView
-        android:id="@+id/simpleCalendarView"
+        android:id="@+id/CalendarViewer"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:firstDayOfWeek="1"
