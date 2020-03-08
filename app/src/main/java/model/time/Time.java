@@ -4,7 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class Time {
+public class Time extends Date{
     private static final DateFormat HOUR_FORMAT = new SimpleDateFormat("hh");
     private static final DateFormat MINUTE_FORMAT = new SimpleDateFormat("mm");
     private static final DateFormat TIME_CONVENTION_FORMAT = new SimpleDateFormat("aa");
