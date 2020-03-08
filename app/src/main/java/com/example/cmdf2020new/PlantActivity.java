@@ -6,19 +6,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import model.plant.Plant;
 
 public class PlantActivity extends AppCompatActivity {
-
+/*
     Plant testPlant1 = new Plant(2, 1);
-    Plant testPlant2 = new Plant(4, 1);
-    Plant testPlant3 = new Plant(6, 1);
-
+    Plant testPlant2 = new Plant(4, 2);
+    Plant testPlant3 = new Plant(6, 3);
+*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant);
+        Plant plant = new Plant();
+        Plant testPlant1 = new Plant(2, 1);
+        changePlantImg(testPlant1);
     }
 
     public void goMakeTask(View v){
@@ -34,6 +38,11 @@ public class PlantActivity extends AppCompatActivity {
     public void goToSettings(View v){
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
+    }
+
+    final ProgressBar progressBar = (ProgressBar) findViewById(R.id.expBar);
+    public void showProgress(Plant p){
+        progressBar.setProgress(p.getXp());
     }
 
     final ImageView imageView = (ImageView) findViewById(R.id.plantImg);
