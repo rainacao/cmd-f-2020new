@@ -6,12 +6,13 @@ public class Task {
     private String name;
     private String description;
     private boolean status;
-    private Time endTime;
+    private Time time;
 
-    public Task(String name, boolean status, String description) {
+    public Task(String name, boolean status, String description, Time time) {
         this.name=name;
         this.status=status;
         this.description=description;
+        this.time=time;
     }
 
     public String getName() {
@@ -26,6 +27,10 @@ public class Task {
         return description;
     }
 
+    public Time getTime() {
+        return time;
+    }
+
     public void changeStatus() {
         status = !status;
     }
@@ -36,6 +41,10 @@ public class Task {
 
     public void changeDescription(String s) {
         description = s;
+    }
+
+    public void changeTime(Time t) {
+        time = t;
     }
 }
 
