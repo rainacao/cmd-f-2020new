@@ -1,8 +1,12 @@
 package model.plant;
 
 import model.exceptions.NoMoreEvolutionException;
+import android.widget.ImageView;
 
-public class Plant extends PlantLevel {
+import com.example.cmdf2020new.R;
+
+public class Plant extends PlantLevel{
+
     final String BASE_STATE="0";
     final static String FIRST_STATE="1";
     final static String SECOND_STATE="2";
@@ -29,7 +33,6 @@ public class Plant extends PlantLevel {
         }
         return false;
     }
-
 
     public void evolvePlant() throws NoMoreEvolutionException {
         switch(currentEvolutionState){
