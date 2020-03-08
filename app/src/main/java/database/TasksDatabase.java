@@ -7,10 +7,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.cmdf2020new.R;
+import com.example.cmdf2020new.MyApp;
 
 public class TasksDatabase extends SQLiteOpenHelper {
-
+    public static TasksDatabase myDB  = new TasksDatabase(MyApp.getContext());
     //public static TasksDatabase;
     public static final String DATABASE_NAME = "TASKS.db";
     public static final String TABLE_NAME = "tasks_table";
