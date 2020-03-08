@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void onButtonClicked(View v) {
+    public void goMakeTask(View v) {
         Intent intent = new Intent(this, AddEditTaskActivity.class);
         startActivity(intent);
     }
