@@ -67,7 +67,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.906" />
+        app:layout_constraintVertical_bias="0.903" />
 
     <Button
         android:id="@+id/viewTasksButton"
@@ -84,17 +84,30 @@
 
     <ImageButton
         android:id="@+id/settingsButton"
-        android:layout_width="72dp"
-        android:layout_height="73dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:onClick="goToSettings"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975"
+        app:layout_constraintVertical_bias="0.98"
         app:srcCompat="@drawable/gear_img" />
+
+    <Button
+        android:id="@+id/ShopButton"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:onClick="goToShop"
+        android:text="shop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.946"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.906" />
 
     <Button
         android:id="@+id/calendarButton"

@@ -68,6 +68,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goToShop(View v){
+        Intent intent = new Intent (this, ShopActivity.class);
+        startActivity(intent);
+    }
+
     public void goToSettings(View v){
         Intent intent = new Intent (this, SettingsActivity.class);
         startActivity(intent);
