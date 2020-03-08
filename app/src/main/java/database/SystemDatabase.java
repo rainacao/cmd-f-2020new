@@ -58,12 +58,15 @@ public class SystemDatabase extends SQLiteOpenHelper {
     public Plant getPlant() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor result = db.rawQuery("select * from " + TREE_TABLE, null);
-        if (result.getCount() == 0) {
+        System.out.println(result.getCount());
+
+        if (result.getCount() <= 0) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("LV", 0);
             contentValues.put("XP", 0);
             db.insert(TREE_TABLE, null, contentValues);
         }
+        result.moveToNext();
         return new Plant(Integer.parseInt(result.getString(0)), Integer.parseInt(result.getString(1)));
     }
 
@@ -75,7 +78,7 @@ public class SystemDatabase extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase(); // instance of the SQLite database
         Cursor result = db.rawQuery("select * from " + SETTINGS_TABLE, null);
-        if (result.getCount() == 0) {
+        if (result.getCount() <= 0) {
             db.insert(SETTINGS_TABLE, null, contentValues);
         } else {
             db.execSQL("DELETE FROM " + SETTINGS_TABLE);
@@ -87,13 +90,14 @@ public class SystemDatabase extends SQLiteOpenHelper {
     public Cursor getSettings() {
         SQLiteDatabase db = this.getWritableDatabase(); // instance of the SQLite database
         Cursor result = db.rawQuery("select * from " + SETTINGS_TABLE, null);
-        if (result.getCount() == 0) {
+        if (result.getCount() <= 0) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("MUSIC", 0);
             contentValues.put("SFX", 0);
             contentValues.put("LANGUAGE", 0);
             db.insert(SETTINGS_TABLE, null, contentValues);
         }
+        result.moveToNext();
         return result;
     }
 }
