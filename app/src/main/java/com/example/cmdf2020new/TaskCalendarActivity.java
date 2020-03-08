@@ -23,6 +23,13 @@ public class TaskCalendarActivity extends AppCompatActivity {
         simpleCalendarView.setUnfocusedMonthDateColor(Color.BLUE);
         simpleCalendarView.setSelectedWeekBackgroundColor(Color.RED);
         simpleCalendarView.setWeekSeparatorLineColor(Color.GREEN);
+
+        simpleCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                Toast.makeText(getApplicationContext(), dayOfMonth + "/" + (month + 1) + "/" + year, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     public void goToPlant(View v){

@@ -17,5 +17,8 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="plant">Plant</string>
+    <string name="plan_t">plan(t)</string>
+    <string name="calendar">calendar</string>
+    <string name="make_task">make task</string>
 
 </resources>
