@@ -12,10 +12,6 @@ public class Plant extends PlantLevel{
     final static String SECOND_STATE="2";
     final static String THIRD_STATE="3";
 
-    public void killPlant() {
-        dead = true;
-    }
-
     private boolean dead;
     private String currentEvolutionState;
 
@@ -29,6 +25,10 @@ public class Plant extends PlantLevel{
         super(lvl, exp);
         dead = false;
         currentEvolutionState = BASE_STATE;
+    }
+
+    public void killPlant() {
+        dead = true;
     }
 
     public boolean checkEvolution() throws NoMoreEvolutionException {
@@ -52,7 +52,8 @@ public class Plant extends PlantLevel{
                 currentEvolutionState = THIRD_STATE;
                 break;
             case THIRD_STATE:
-            default: throw new NoMoreEvolutionException();
+            default:
+                throw new NoMoreEvolutionException();
 
         }
     }
