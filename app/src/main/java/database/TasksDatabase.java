@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.cmdf2020new.MyApp;
 
 public class TasksDatabase extends SQLiteOpenHelper {
-   // public static TasksDatabase myDB  = new TasksDatabase(MyApp.getContext());
+    // public static TasksDatabase myDB  = new TasksDatabase(MyApp.getContext());
 
     //finalized, completed tasks
     public static final String DATABASE_NAME = "Tasks.db";

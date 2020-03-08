@@ -29,54 +29,46 @@ public class AddEditTaskActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_task);
-         name = (EditText)findViewById(R.id.editText);
-         description = (EditText)findViewById(R.id.editText2);
-         time = (EditText)findViewById(R.id.editText3);
-         id = (EditText)findViewById(R.id.editText4);
+        name = (EditText)findViewById(R.id.editText);
+        description = (EditText)findViewById(R.id.editText2);
+        time = (EditText)findViewById(R.id.editText3);
+        id = (EditText)findViewById(R.id.editText4);
 
-         done = (CheckBox)findViewById(R.id.checkBox2);
-         textView = (TextView)findViewById(R.id.textView3);
+        done = (CheckBox)findViewById(R.id.checkBox2);
+        textView = (TextView)findViewById(R.id.textView3);
 
-         myDB = TasksDatabase.myBD;
-         MyApp.getContext().deleteDatabase("Tasks.db");
+        myDB = TasksDatabase.myBD;
+        MyApp.getContext().deleteDatabase("Tasks.db");
         this.deleteDatabase("Tasks.db");
 
         updateTextView();
     }
 
     public void onAdd(View v) {
-            showMessage("", "" + myDB.insertData(name.getText().toString(), description.getText().toString(), time.getText().toString(), done.isChecked()));
+        showMessage("", "" + myDB.insertData(name.getText().toString(), description.getText().toString(), time.getText().toString(), done.isChecked()));
 
         updateTextView();
     }
 
     public void onDelete(View v) {
-            Integer deletedRows = myDB.deleteData(name.getText().toString());
-            if(deletedRows > 0)
-                Toast.makeText(this, "Data Deleted",
-                        Toast.LENGTH_LONG).show();
-            else
-                Toast.makeText(this, "Data NOT Deleted",
-                        Toast.LENGTH_LONG).show();
+        Integer deletedRows = myDB.deleteData(name.getText().toString());
+        if(deletedRows > 0)
+            Toast.makeText(this, "Data Deleted",
+                    Toast.LENGTH_LONG).show();
+        else
+            Toast.makeText(this, "Data NOT Deleted",
+                    Toast.LENGTH_LONG).show();
 
         updateTextView();
     }
 
     public void onEdit(View v) {
-            myDB.updateData(id.getText().toString(), name.getText().toString(), description.getText().toString(), time.getText().toString(), done.isChecked());
+        myDB.updateData(id.getText().toString(), name.getText().toString(), description.getText().toString(), time.getText().toString(), done.isChecked());
         updateTextView();
     }
 
     public void updateTextView() {
-        Cursor dbCursor = myDB.getReadableDatabase().query("tasks_table", new String[]{"COL_1"}, null, null, null, null, null);
-        int index = dbCursor.getCount();
-        for (int i = 0; i < index; i++) {
-            dbCursor.getString(i).getClass();
-            dbCursor.getString(i);
-        }
-
         Cursor result = myDB.getAllData();
-        //Cursor result2 = myDB.getTempData();
         StringBuffer buffer = new StringBuffer();
 
         while (result.moveToNext()) {    // while there is more data to read
@@ -85,13 +77,6 @@ public class AddEditTaskActivity extends AppCompatActivity {
             buffer.append("description: " + result.getString(2) + "\n");
             buffer.append("time: " + result.getString(3) + "\n\n");
         }
-/*
-        while (result2.moveToNext()) {    // while there is more data to read
-            buffer.append("Id: " + result2.getString(0) + "\n");     // column 1
-            buffer.append("name: " + result2.getString(1) + "\n");
-            buffer.append("description: " + result2.getString(2) + "\n");
-            buffer.append("time: " + result2.getString(3) + "\n\n");
-        }*/
 
         textView.setText(buffer.toString());
     }
