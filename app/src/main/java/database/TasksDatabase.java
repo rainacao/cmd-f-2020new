@@ -97,7 +97,7 @@ public class TasksDatabase extends SQLiteOpenHelper {
 
     public Integer deleteData(String id){
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_NAME, "COL_1 = ?", new String[] {id});
+        return db.delete(TABLE_NAME, "COL_1 = ?", new String[]{id});
         // first param is table name, second is telling the delete method what to look for.
         // In this case we are checking to see if the ID is equal to the value that is
         // passed in the String array which is the third argument

@@ -38,8 +38,8 @@ public class AddEditTaskActivity extends AppCompatActivity {
         textView = (TextView)findViewById(R.id.textView3);
 
         myDB = TasksDatabase.myBD;
-        MyApp.getContext().deleteDatabase("Tasks.db");
-        this.deleteDatabase("Tasks.db");
+        //MyApp.getContext().deleteDatabase("Tasks.db");
+        //this.deleteDatabase("Tasks.db");
 
         updateTextView();
     }
@@ -51,7 +51,7 @@ public class AddEditTaskActivity extends AppCompatActivity {
     }
 
     public void onDelete(View v) {
-        Integer deletedRows = myDB.deleteData(name.getText().toString());
+        Integer deletedRows = myDB.deleteData(id.getText().toString());
         if(deletedRows > 0)
             Toast.makeText(this, "Data Deleted",
                     Toast.LENGTH_LONG).show();
@@ -75,7 +75,8 @@ public class AddEditTaskActivity extends AppCompatActivity {
             buffer.append("Id: " + result.getString(0) + "\n");     // column 1
             buffer.append("name: " + result.getString(1) + "\n");
             buffer.append("description: " + result.getString(2) + "\n");
-            buffer.append("time: " + result.getString(3) + "\n\n");
+            buffer.append("time: " + result.getString(3) + "\n");
+            buffer.append("done: " + result.getString(4) + "\n\n");
         }
 
         textView.setText(buffer.toString());
