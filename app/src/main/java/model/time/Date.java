@@ -7,8 +7,10 @@ import java.util.Calendar;
 public class Date {
     private static final DateFormat YEAR_FORMAT = new SimpleDateFormat("yyyy");
     private static final DateFormat MONTH_FORMAT = new SimpleDateFormat("MMMM");
+    private static final DateFormat MONTH_NUMERICAL_FORMAT = new SimpleDateFormat("MM");
     private static final DateFormat DAY_FORMAT = new SimpleDateFormat("dd");
     private static final DateFormat NAME_OF_DAY_FORMAT = new SimpleDateFormat("EEEE");
+
 
     private Calendar calendar = Calendar.getInstance();
 
@@ -16,12 +18,14 @@ public class Date {
     private String month;
     private String dayOfTheWeek;
     private String day;
+    private String numericalMonth;
 
     public Date() {
         year = YEAR_FORMAT.format(calendar);
         month = MONTH_FORMAT.format(calendar);
         dayOfTheWeek = NAME_OF_DAY_FORMAT.format(calendar);
         day = DAY_FORMAT.format(calendar);
+        numericalMonth= MONTH_NUMERICAL_FORMAT.format(calendar);
     }
 
     public Date(Calendar calendar) {
@@ -62,6 +66,8 @@ public class Date {
     public String getMonth() {
         return month;
     }
+
+    public String getNumericalMonth() {return numericalMonth;}
 
     public String getDayOfTheWeek() {
         return dayOfTheWeek;
