@@ -1,9 +1,6 @@
 package model.plant;
 
 import model.exceptions.NoMoreEvolutionException;
-import android.widget.ImageView;
-
-import com.example.cmdf2020new.R;
 
 public class Plant extends PlantLevel{
 
@@ -11,10 +8,6 @@ public class Plant extends PlantLevel{
     final static String FIRST_STATE="1";
     final static String SECOND_STATE="2";
     final static String THIRD_STATE="3";
-
-    public void killPlant() {
-        dead = true;
-    }
 
     private boolean dead;
     private String currentEvolutionState;
@@ -29,6 +22,10 @@ public class Plant extends PlantLevel{
         super(lvl, exp);
         dead = false;
         currentEvolutionState = BASE_STATE;
+    }
+
+    public void killPlant() {
+        dead = true;
     }
 
     public boolean checkEvolution() throws NoMoreEvolutionException {
@@ -52,13 +49,14 @@ public class Plant extends PlantLevel{
                 currentEvolutionState = THIRD_STATE;
                 break;
             case THIRD_STATE:
-            default: throw new NoMoreEvolutionException();
+            default:
+                throw new NoMoreEvolutionException();
 
         }
     }
 
     public boolean checkUpdate() {
-        if (getXp() > 5) {
+        if (getEXP() >= 5) {
             updateLevel();
             return true;
         }
