@@ -12,6 +12,11 @@ public class PlantLevel {
         this.xp = xp;
     }
 
+    public void updateLevel() {
+        currentLevel++;
+        xp = 0;
+    }
+
     public int getCurrentLevel() {
         return currentLevel;
     }
@@ -19,10 +24,5 @@ public class PlantLevel {
     public int getXp() {
         return xp;
     }
-
-    public void updateLevel() {
-        currentLevel++;
-    }
-
 
 }

@@ -21,6 +21,12 @@ public class Plant extends PlantLevel{
         currentEvolutionState = BASE_STATE;
     }
 
+    public Plant(int lvl, int exp){
+        super(lvl, exp);
+        dead = false;
+        currentEvolutionState = BASE_STATE;
+    }
+
     public void killPlant() {
         dead = true;
     }
@@ -46,13 +52,14 @@ public class Plant extends PlantLevel{
                 currentEvolutionState = THIRD_STATE;
                 break;
             case THIRD_STATE:
-            default: throw new NoMoreEvolutionException();
+            default:
+                throw new NoMoreEvolutionException();
 
         }
     }
 
     public boolean checkUpdate() {
-        if (getXp() > 5) {
+        if (getXp() >= 5) {
             updateLevel();
             return true;
         }
