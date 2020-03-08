@@ -16,7 +16,6 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <string name="plant">Plant</string>
     
     <string-array name="languages">
         <item>english</item>
@@ -27,6 +26,7 @@
 
     <string name="plan_t">plan(t)</string>
     <string name="calendar">calendar</string>
+    <string name="plant">plant</string>
     <string name="make_task">make task</string>
     <string name="view_tasks">view tasks</string>
 
