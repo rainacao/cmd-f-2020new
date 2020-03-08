@@ -18,8 +18,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+
     public void goToPlant(View v) {
         Intent intent = new Intent(this, PlantActivity.class);
+        startActivity(intent);
+    }
+
+
+    public void goViewTask(View v) {
+        Intent intent = new Intent(this, TasksActivity.class);
         startActivity(intent);
     }
 
