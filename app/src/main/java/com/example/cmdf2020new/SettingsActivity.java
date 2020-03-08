@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class activity_settings extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity {
     private Button button;
 
     @Override
@@ -25,7 +25,7 @@ public class activity_settings extends AppCompatActivity {
     }
 
     public void backToMenu(){
-        Intent intent = new Intent (this, PlantActivity.class);
+        Intent intent = new Intent (this, MainActivity.class);
         startActivity(intent);
     }
 }
