@@ -96,7 +96,7 @@ public class TasksActivity extends AppCompatActivity {
                     itemDto.setChecked(true);
                 }
 
-                Button done = (Button)findViewById(R.id.done);
+                Button done = (Button)findViewById(R.id.doneTaskButton);
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -156,8 +156,18 @@ public class TasksActivity extends AppCompatActivity {
         builder.show();
     }
 
-    public void onAddClicked(View v) {
+    public void goMakeTasks(View v) {
         Intent intent = new Intent(this, AddEditTaskActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToCalendar(View v) {
+        Intent intent = new Intent(this, TaskCalendarActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToPlant(View v) {
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 

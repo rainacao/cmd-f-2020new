@@ -29,5 +29,8 @@
     <string name="plant">plant</string>
     <string name="make_task">make task</string>
     <string name="view_tasks">view tasks</string>
+    <string name="mark_as_complete">mark as complete</string>
+    <string name="add_task">add task</string>
+    <string name="view_today_s_tasks">View Today\'s Tasks</string>
 
 </resources>
