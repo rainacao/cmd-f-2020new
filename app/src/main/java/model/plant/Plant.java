@@ -4,10 +4,10 @@ import model.exceptions.NoMoreEvolutionException;
 
 public class Plant {
 
-    public final static String BASE_STATE = "0";
-    public final static String FIRST_STATE = "1";
-    public final static String SECOND_STATE = "2";
-    public final static String THIRD_STATE = "3";
+    public final static int BASE_STATE = 0;
+    public final static int FIRST_STATE = 1;
+    public final static int SECOND_STATE = 2;
+    public final static int THIRD_STATE = 3;
 
     private static final int EVOLUTION_1 = 2;
     private static final int EVOLUTION_2 = 4;
@@ -21,7 +21,7 @@ public class Plant {
     private boolean isDead;
     private int level;
     private int exp;
-    private String currentEvolutionState;
+    private int currentEvolutionState;
     private int coins = 0;
 
     public Plant() {
@@ -97,7 +97,7 @@ public class Plant {
         return exp;
     }
 
-    public String getCurrentEvolutionState() {
+    public int getCurrentEvolutionState() {
         return currentEvolutionState;
     }
 }

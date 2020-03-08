@@ -28,11 +28,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         plant = SystemDatabase.myDB.getPlant();
-        getLvlNow(testPlant3);
-        getLvlNext(testPlant3);
+        getLvlNow(testPlant2);
+        getLvlNext(testPlant2);
         //lvlNow = (TextView) findViewById(R.id.initLevelText);
         //lvlNext = (TextView) findViewById(R.id.nextLevelText);
-        updatePlantImage(testPlant3);
+        updatePlantImage(testPlant2);
 
     }
 
