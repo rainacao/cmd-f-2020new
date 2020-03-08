@@ -22,6 +22,8 @@ public class SystemDatabase extends SQLiteOpenHelper {
     public static final String SETTINGS_TABLE = "settings_table";
     //MUSIC | SFX | LANGUAGE
 
+    //public static SystemDatabase myDB = new SystemDatabase(MyApp.getContext());
+
     public SystemDatabase(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
@@ -58,16 +60,14 @@ public class SystemDatabase extends SQLiteOpenHelper {
     public Plant getPlant() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor result = db.rawQuery("select * from " + TREE_TABLE, null);
-        System.out.println(result.getCount());
 
-        if (result.getCount() <= 0) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("LV", 0);
-            contentValues.put("XP", 0);
-            db.insert(TREE_TABLE, null, contentValues);
+        if (result.getCount() == 0) {
+            return new Plant();
+        } else {
+            result.moveToNext();
+            return new Plant(Integer.parseInt(result.getString(0)), Integer.parseInt(result.getString(1)));
         }
-        result.moveToNext();
-        return new Plant(Integer.parseInt(result.getString(0)), Integer.parseInt(result.getString(1)));
+
     }
 
     public boolean updateSettingsData(int music, int sfx, int language) {

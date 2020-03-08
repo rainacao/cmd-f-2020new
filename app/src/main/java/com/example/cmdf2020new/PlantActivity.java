@@ -14,6 +14,11 @@ import model.plant.Plant;
 public class PlantActivity extends AppCompatActivity {
 
     private ImageView image;   // the plant and its evolution
+    Plant testPlant0 = new Plant(0, 1);
+    Plant testPlant1 = new Plant(2, 1);
+    Plant testPlant2 = new Plant(5, 4);
+    Plant testPlant3 = new Plant(6, 1);
+
     Plant plant;
 
     @Override
