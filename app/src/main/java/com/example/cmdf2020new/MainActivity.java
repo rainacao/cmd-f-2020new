@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import model.plant.Plant;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -20,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PlantActivity.class);
         intent.putExtra("name", "Raina");
         startActivity(intent);
-
     }
 
 }
