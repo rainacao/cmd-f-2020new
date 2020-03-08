@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
-
-import model.plant.Plant;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,7 +19,11 @@ public class MainActivity extends AppCompatActivity {
     public void onButtonClicked(View v) {
         Intent intent = new Intent(this, AddEditTaskActivity.class);
         startActivity(intent);
+    }
 
+    public void goToCalendar(View v){
+        Intent intent = new Intent (this, TaskCalendarActivity.class);
+        startActivity(intent);
     }
 
 }
