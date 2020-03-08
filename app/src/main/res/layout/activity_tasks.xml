@@ -12,19 +12,35 @@
         android:layout_margin="15dp"/>
 
     <Button
-        android:id="@+id/done"
+        android:id="@+id/doneTaskButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Done!"
-        android:layout_margin="15dp"/>
+        android:layout_marginHorizontal="10dp"
+        android:text="@string/mark_as_complete" />
+
     <Button
-        android:id="@+id/add"
+        android:id="@+id/addTaskButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add task"
-        android:onClick="onAddClicked"
-        android:layout_margin="15dp"/>
+        android:layout_marginHorizontal="10dp"
+        android:onClick="goMakeTasks"
+        android:text="@string/add_task" />
 
+    <Button
+        android:id="@+id/calendarButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:text="@string/calendar"
+        android:onClick="goToCalendar"/>
 
+    <Button
+        android:id="@+id/plantButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/plant"
+        android:onClick="goToPlant"/>
 
 </LinearLayout>

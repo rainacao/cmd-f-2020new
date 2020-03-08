@@ -3,6 +3,7 @@ package com.example.cmdf2020new;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -25,17 +26,18 @@ public class AddEditTaskActivity extends AppCompatActivity {
     TextView textView;
 
     TasksDatabase myDB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_task);
-        name = (EditText)findViewById(R.id.editText);
-        description = (EditText)findViewById(R.id.editText2);
-        time = (EditText)findViewById(R.id.editText3);
-        id = (EditText)findViewById(R.id.editText4);
+        name = (EditText) findViewById(R.id.editText);
+        description = (EditText) findViewById(R.id.editText2);
+        time = (EditText) findViewById(R.id.editText3);
+        id = (EditText) findViewById(R.id.editText4);
 
-        done = (CheckBox)findViewById(R.id.checkBox2);
-        textView = (TextView)findViewById(R.id.textView3);
+        done = (CheckBox) findViewById(R.id.checkBox2);
+        textView = (TextView) findViewById(R.id.textView3);
 
         myDB = TasksDatabase.myBD;
         //MyApp.getContext().deleteDatabase("Tasks.db");
@@ -52,7 +54,7 @@ public class AddEditTaskActivity extends AppCompatActivity {
 
     public void onDelete(View v) {
         Integer deletedRows = myDB.deleteData(id.getText().toString());
-        if(deletedRows > 0)
+        if (deletedRows > 0)
             Toast.makeText(this, "Data Deleted",
                     Toast.LENGTH_LONG).show();
         else
@@ -82,7 +84,7 @@ public class AddEditTaskActivity extends AppCompatActivity {
         textView.setText(buffer.toString());
     }
 
-    public void showMessage(String title, String message){
+    public void showMessage(String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
         builder.setTitle(title);
@@ -90,5 +92,18 @@ public class AddEditTaskActivity extends AppCompatActivity {
         builder.show();
     }
 
+    public void goToTasks(View v) {
+        Intent intent = new Intent(this, TasksActivity.class);
+        startActivity(intent);
+    }
 
+    public void goToCalendar(View v) {
+        Intent intent = new Intent(this, TaskCalendarActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToPlant(View v) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 }
