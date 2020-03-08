@@ -15,14 +15,14 @@ public class PlantActivity extends AppCompatActivity {
 
     Plant testPlant0 = new Plant(0, 1);
     Plant testPlant1 = new Plant(2, 1);
-    Plant testPlant2 = new Plant(4, 1);
+    Plant testPlant2 = new Plant(5, 4);
     Plant testPlant3 = new Plant(6, 1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant);
-        updatePlantImage(testPlant3);
+        updatePlantImage(testPlant2);
     }
 
     public void goMakeTask(View v) {
@@ -47,7 +47,7 @@ public class PlantActivity extends AppCompatActivity {
 
     public void updatePlantImage(Plant p) {
         image = findViewById(R.id.plantImg);
-        System.out.println(image);
+        p.addEXP(TasksActivity.exp);
         int level = p.getCurrentLevel();
         if (level < 2) {
             image.setImageResource(R.drawable.plant_img0);

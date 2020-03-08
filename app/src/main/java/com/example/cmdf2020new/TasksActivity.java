@@ -37,6 +37,8 @@ public class TasksActivity extends AppCompatActivity {
     List<String> idList = new ArrayList<>();
 
     TasksDatabase myDB = TasksDatabase.myBD;
+
+    public static int exp = 0;
 /*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +108,7 @@ public class TasksActivity extends AppCompatActivity {
                                 Task t= taskList.get(i);
                                 myDB.updateData(idList.get(i), t.getName(), t.getDescription(), "", true);
                                 //!!!!!! end time not set for testing purpose
+                                exp++;
                             }
                         }
                         listViewDataAdapter.notifyDataSetChanged();
@@ -158,5 +161,9 @@ public class TasksActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // reset xp gathered from this round of finished tasks
+    private void resetEXP() {
+        exp = 0;
+    }
 
 }
