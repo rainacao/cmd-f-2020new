@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.cmdf2020new.MyApp;
+
 import model.plant.Plant;
 
 public class SystemDatabase extends SQLiteOpenHelper {
@@ -17,6 +19,8 @@ public class SystemDatabase extends SQLiteOpenHelper {
 
     public static final String SETTINGS_TABLE = "settings_table";
     //MUSIC | SFX | LANGUAGE
+
+    public static SystemDatabase myDB = new SystemDatabase(MyApp.getContext());
 
     public SystemDatabase(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -54,7 +58,13 @@ public class SystemDatabase extends SQLiteOpenHelper {
     public Plant getPlant() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor result = db.rawQuery("select * from " + TREE_TABLE, null);
-        return new Plant(Integer.parseInt(result.getString(0)), Integer.parseInt(result.getString(1)));
+        if (result.getCount() == 0) {
+            return new Plant();
+        } else {
+            result.moveToNext();
+            return new Plant(Integer.parseInt(result.getString(0)), Integer.parseInt(result.getString(1)));
+        }
+
     }
 
     public boolean updateSettingsData(int music, int sfx, String language) {
