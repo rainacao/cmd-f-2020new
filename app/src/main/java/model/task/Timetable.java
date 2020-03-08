@@ -11,8 +11,13 @@ public class Timetable {
     }
 
     public void addTask(Task task) {
-        int taskValue = Integer.parseInt((task.getTime()).getHour());
+        int taskValue = (task.getTime()).getTimeValue();
         timetable.put(taskValue, task);
+    }
+
+    public void deleteTask(Task task) {
+        int taskValue = (task.getTime()).getTimeValue();
+        timetable.remove(taskValue);
     }
 
     public ArrayList<String> blankTimetable() {
