@@ -17,5 +17,12 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="plant">Plant</string>
+    
+    <string-array name="languages">
+        <item>english</item>
+        <item>chinese</item>
+        <item>hindi</item>
+        <item>japanese</item>
+    </string-array>
 
 </resources>

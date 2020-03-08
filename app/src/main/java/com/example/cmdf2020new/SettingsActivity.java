@@ -9,8 +9,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
-public class SettingsActivity extends AppCompatActivity{
+public class SettingsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private Button button;
     private Spinner spinner;
     //private static final String[] paths = {"english", "中文", "🗾"};
@@ -27,6 +28,12 @@ public class SettingsActivity extends AppCompatActivity{
                 backToMenu();
             }
         });
+
+        Spinner spinner = findViewById(R.id.languageChoose);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.languages, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
     }
 
     public void backToMenu(){
@@ -34,4 +41,14 @@ public class SettingsActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
